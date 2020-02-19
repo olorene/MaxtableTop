@@ -52,14 +52,14 @@ public class InitialConnect {
     // Select menu "Товары"
     private String selectMenuGoods(Document doc){
         String linkToPageGoods = "";
-//            System.out.println(doc.body());
+            System.out.println(doc.body());
         Element menu = doc.getElementById("menu").getElementById("menu-catalog");
 //            System.out.println(menu.html());
 //            System.out.println("================================");
         Elements liList = menu.getElementsByTag("li");
 
         for (Element e : liList) {
-            if (e.text().equals("Товары") ) {
+            if (e.text().equals("Товари") ) {
 //                    System.out.println(e.text());
                 Elements linkGoods = e.select("a[href]");
                 for (Element link : linkGoods) {

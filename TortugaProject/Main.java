@@ -14,7 +14,7 @@ public class Main {
         Map<String, String> cookies = connect.getCookies();
         String linkToNextPage = null;
 
-        System.out.println(linkToPage);
+//        System.out.println(linkToPage);
         ConnectToPage connectToPageGoods = new ConnectToPage();
         Document docGoods = connectToPageGoods.connectToPage(linkToPage, cookies, userAgent);
 
@@ -22,11 +22,11 @@ public class Main {
         ArrayList<Product> listProduct =  parsPage.parsPageGoods(docGoods);
 
         for (int i = 0; i < listProduct.size(); i++) {
-            System.out.println("234lkj15ho23i4 - " + listProduct.get(i));
+//            System.out.println("234lkj15ho23i4 - " + listProduct.get(i));
         }
 
         linkToNextPage = parsPage.parsLinkToNextPage(docGoods);
-        System.out.println(linkToNextPage);
+//        System.out.println(linkToNextPage);
 
 /*        do {
             System.out.println(linkToPage);

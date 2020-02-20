@@ -6,6 +6,7 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
+/*
         Connection.Response loginForm = Jsoup.connect("https://maxtable.top/admin/")
                 .method(Connection.Method.GET)
                 .execute();
@@ -17,6 +18,7 @@ public class Main {
                 .cookies(loginForm.cookies())
                 .post();
         System.out.println(document);
+*/
 
     }
 }

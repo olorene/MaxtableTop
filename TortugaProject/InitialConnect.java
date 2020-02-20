@@ -52,7 +52,7 @@ public class InitialConnect {
     // Select menu "Товары"
     private String selectMenuGoods(Document doc){
         String linkToPageGoods = "";
-            System.out.println(doc.body());
+//            System.out.println(doc.body());
         Element menu = doc.getElementById("menu").getElementById("menu-catalog");
 //            System.out.println(menu.html());
 //            System.out.println("================================");
@@ -75,6 +75,7 @@ public class InitialConnect {
 
     public String start() {
         Document doc = null;
+        Document document = null;
 //        InitialConnect connectToTortuga = new InitialConnect();
         this.setAcauntParameters();
 //        System.out.println(connectToTortuga.getLogin() + " " + connectToTortuga.getPassword());
@@ -82,8 +83,7 @@ public class InitialConnect {
 
 
         try {
-//            String token = "";
-            //grab first page with login field
+/*          //grab first page with login field
             response = Jsoup.connect(url)
                     .referrer("http://www.google.com.ua/")
                     .userAgent(userAgent)
@@ -102,7 +102,22 @@ public class InitialConnect {
 //                    .followRedirects(true)
                     .execute();
 
-            doc = homePage.parse();
+            */
+
+            Connection.Response loginForm = Jsoup.connect("https://maxtable.top/admin/")
+                    .method(Connection.Method.GET)
+                    .execute();
+            this.cookies = loginForm.cookies();
+
+            document = Jsoup.connect("https://maxtable.top/admin/index.php?route=common/login")
+//                .data("cookieexists", "false")
+                    .data("username", "vzinchenko")
+                    .data("password", "menmbar")
+                    .cookies(loginForm.cookies())
+                    .post();
+//            System.out.println(document);
+//            doc = homePage.parse();
+
             // Print for DEBUG
 //            Print title of page
 /*            String title = doc.title();
@@ -112,7 +127,7 @@ public class InitialConnect {
         } catch (Exception ex) {
             System.out.println("InitialConnect.start" + ex.getMessage());
         }
-        String linkToPage = selectMenuGoods(doc);
+        String linkToPage = selectMenuGoods(document);
 //        System.out.println(linkToPage);
 
         return linkToPage;

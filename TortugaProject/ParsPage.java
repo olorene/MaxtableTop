@@ -58,8 +58,6 @@ public class ParsPage {
 //                    linkToNextPage = textPage;
                     break;
 //                    return linkToNextPage;
-                } else {
-//                    return linkToNextPage;
                 }
                 linkToNextPage = null;
             }

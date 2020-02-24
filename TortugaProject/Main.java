@@ -12,17 +12,35 @@ public class Main {
         List<Product> allProduct = new ArrayList<>();
         String linkToNextPage = null;
 
+//        Initial connection
         String linkToPage = connect.start();
         String userAgent = connect.getUserAgent();
         Map<String, String> cookies = connect.getCookies();
-
 //        System.out.println(linkToPage);
+
+//        Work connection
         ConnectToPage connectToPageGoods = new ConnectToPage();
         Document docGoods = connectToPageGoods.connectToPage(linkToPage, cookies, userAgent);
 
+//        Pars page with products and find next link to page
         ParsPage parsPage = new ParsPage();
         ArrayList<Product> productOnePage =  parsPage.parsPageGoods(docGoods);
         allProduct.addAll(productOnePage);
+        linkToNextPage = parsPage.parsLinkToNextPage(docGoods);
+        System.out.println(linkToNextPage);
+        Thread.sleep(4000);
+
+        for (; linkToNextPage != null; ) {
+            docGoods = connectToPageGoods.connectToPage(linkToNextPage, cookies, userAgent);
+            productOnePage =  parsPage.parsPageGoods(docGoods);
+            allProduct.addAll(productOnePage);
+            linkToNextPage = parsPage.parsLinkToNextPage(docGoods);
+            System.out.println(linkToNextPage);
+            Thread.sleep(4000);
+
+        }
+
+
 
         LogoutFromSite.logout(cookies, userAgent, docGoods);
 

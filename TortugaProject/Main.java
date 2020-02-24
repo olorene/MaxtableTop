@@ -9,12 +9,12 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         InitialConnect connect = new InitialConnect();
+        List<Product> allProduct = new ArrayList<>();
+        String linkToNextPage = null;
 
         String linkToPage = connect.start();
         String userAgent = connect.getUserAgent();
         Map<String, String> cookies = connect.getCookies();
-        String linkToNextPage = null;
-        List<Product> allProduct = new ArrayList<>();
 
 //        System.out.println(linkToPage);
         ConnectToPage connectToPageGoods = new ConnectToPage();
@@ -24,8 +24,7 @@ public class Main {
         ArrayList<Product> productOnePage =  parsPage.parsPageGoods(docGoods);
         allProduct.addAll(productOnePage);
 
-        LogoutFromSite.linkToLogout(docGoods);
-        LogoutFromSite.logout(cookies, userAgent);
+        LogoutFromSite.logout(cookies, userAgent, docGoods);
 
 
 

@@ -20,5 +20,12 @@ public class Main {
         System.out.println(document);
 */
 
+        int counter = 0;
+        System.out.println("Counter " + counter);
+
+//        do {
+//            counter += 1;
+//        }
+
     }
 }

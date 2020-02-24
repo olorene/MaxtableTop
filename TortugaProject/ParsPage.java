@@ -54,7 +54,7 @@ public class ParsPage {
                 linkToNextPage = link.attr("abs:href");
                 String textPage = link.text();
                 if (textPage.equals(">")){
-                    System.out.println(linkToNextPage + " " + textPage);
+//                    System.out.println(linkToNextPage + " " + textPage);
 //                    linkToNextPage = textPage;
                     break;
 //                    return linkToNextPage;

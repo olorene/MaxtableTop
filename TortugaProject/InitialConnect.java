@@ -52,12 +52,12 @@ public class InitialConnect {
     // Select menu "Товары"
     private String selectMenuGoods(Document doc){
         String linkToPageGoods = "";
-//            System.out.println(doc.body());
-        Element menu = doc.getElementById("menu").getElementById("menu-catalog");
-//            System.out.println(menu.html());
-//            System.out.println("================================");
-        Elements liList = menu.getElementsByTag("li");
+//            System.out.println("1837938 - " + doc.body());
 
+//        logoutFromSite(doc);
+
+        Element menu = doc.getElementById("menu").getElementById("menu-catalog");
+        Elements liList = menu.getElementsByTag("li");
         for (Element e : liList) {
             if (e.text().equals("Товари") ) {
 //                    System.out.println(e.text());

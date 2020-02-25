@@ -11,6 +11,7 @@ public class Main {
         InitialConnect connect = new InitialConnect();
         List<Product> allProduct = new ArrayList<>();
         String linkToNextPage = null;
+        String pathOutFileProduct = "D:\\Data\\Tortuga\\CatalogMaxTableTop.csv";
 
 //        Initial connection
         String linkToPage = connect.start();
@@ -40,12 +41,35 @@ public class Main {
 
         }
 
+//        Write header of table
+        FileProcessing file = new FileProcessing();
+        Product product = new Product();
+        String lineForWrite = product.headerProduct() + "\n";
+        file.writeProductToFile(pathOutFileProduct, lineForWrite);
+
+        String garbage = ";Найменування Товара;Модель;Category;Кількість;Статус;Ціна на сайті;";
+        for (int i = 0; i < allProduct.size(); i++) {
+            if (!(allProduct.get(i).productForOutput().equals(garbage))) {
+//                System.out.println(allProduct.get(i).productForOutput());
+                lineForWrite = allProduct.get(i).productForOutput() + "\n";
+                file.writeProductToFile(pathOutFileProduct, lineForWrite);
+            }
+        }
+
+
+
 
 
         LogoutFromSite.logout(cookies, userAgent, docGoods);
 
 
 
+/*//Print all products
+        for (int i = 0; i < allProduct.size(); i++){
+            System.out.println(allProduct.get(i));
+
+        }
+        System.out.println("======================================= 0938275934768");*/
 /*//        Loop all pages with products
         linkToNextPage = parsPage.parsLinkToNextPage(docGoods);
         int counterLoop = 0;
@@ -64,11 +88,6 @@ public class Main {
             System.out.println(counterLoop);
         } while (linkToNextPage != null && counterLoop <= 5);*/
 
-/*//Print all products
-        for (int i = 0; i < allProduct.size(); i++){
-            System.out.println(allProduct.get(i));
-
-        }*/
 
 
 

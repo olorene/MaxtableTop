@@ -30,29 +30,58 @@ public class Product {
         this.name = name;
     }
 
-        public void setPositionCode(String positionCode) {
-            this.positionCode = positionCode;
-        }
+    public void setPositionCode(String positionCode) {
+        this.positionCode = positionCode;
+    }
 
-        public void setPrice(String aPrice) {
-            this.price = aPrice.trim();
-        }
+    public void setPrice(String aPrice) {
+        this.price = aPrice.trim();
+    }
 
-        public void setCatalog(String catalog) {
-            this.catalog = catalog.trim();
-        }
+    public void setCatalog(String catalog) {
+        this.catalog = catalog.trim();
+    }
 
-        public void setQuantityInStock(String quantityInStock) {
-            this.quantityInStock = quantityInStock.trim();
-        }
+    public void setQuantityInStock(String quantityInStock) {
+        this.quantityInStock = quantityInStock.trim();
+    }
 
-        public void setStatePosition(String statePosition) {
-            this.statePosition = statePosition.trim();
-        }
+    public void setStatePosition(String statePosition) {
+        this.statePosition = statePosition.trim();
+    }
 
+    public String productForOutput() {
+        return picture + ';' +
+                name + ';' +
+                positionCode + ';' +
+                catalog + ';' +
+                quantityInStock + ';' +
+                statePosition + ';' +
+                price + ';';
+    }
+
+    public String headerProduct() {
+//        return  "picture;name;positionCode;catalog;quantityInStock;statePosition;price;";
+        return "picture" + ';' +
+                "name" + ';' +
+                "positionCode" + ';' +
+                "catalog" + ';' +
+                "quantityInStock" + ';' +
+                "statePosition" + ';' +
+                "price" + ';' + "\n";
+    }
     @Override
     public String toString() {
-        return "Product{" +
+        return picture + ';' +
+                name + ';' +
+                positionCode + ';' +
+                catalog + ';' +
+                quantityInStock + ';' +
+                statePosition + ';' +
+                price + ';' + "\n";
+
+
+/*        return "Product{" +
                 "picture='" + picture + '\'' +
                 ", name='" + name + '\'' +
                 ", positionCode='" + positionCode + '\'' +
@@ -60,6 +89,7 @@ public class Product {
                 ", quantityInStock='" + quantityInStock + '\'' +
                 ", statePosition='" + statePosition + '\'' +
                 ", price='" + price + '\'' +
-                '}';
+                '}';*/
+
     }
 }

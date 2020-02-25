@@ -39,6 +39,15 @@ public class ParsPage {
                 aProduct.setStatePosition(cols.get(7).text()); //State position
 
                 listProduct.add(aProduct);
+
+//                System.out.println(cols.get(1).select("img").attr("abs:src"));
+//                System.out.println(cols.get(2).text()); //Name
+//                System.out.println(cols.get(3).text()); //Position code
+//                System.out.println(cols.get(4).text()); //Prise
+//                System.out.println(cols.get(5).text()); //Catalog
+//                System.out.println(cols.get(6).text()); //Quantity in stock
+//                System.out.println(cols.get(7).text()); //State position
+//                System.out.println("94708724 =================================================");
             }
 
             return  listProduct;

@@ -109,10 +109,10 @@ public class InitialConnect {
                     .execute();
             this.cookies = loginForm.cookies();
 
-            document = Jsoup.connect("https://maxtable.top/admin/index.php?route=common/login")
+            document = Jsoup.connect(url)
 //                .data("cookieexists", "false")
-                    .data("username", "vzinchenko")
-                    .data("password", "menmbar")
+                    .data("username", login)
+                    .data("password", password)
                     .cookies(loginForm.cookies())
                     .post();
 //            System.out.println(document);

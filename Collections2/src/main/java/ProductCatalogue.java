@@ -6,7 +6,7 @@ import java.util.TreeSet;
 public class ProductCatalogue implements Iterable<Product>
 {
 //    private Set<Product> products = new HashSet<>();
-    private Set<Product> products = new TreeSet<>();
+    private Set<Product> products = new TreeSet<>(Product.BY_NAME);
 
     public void isSuppliedBy(Supplier supplier)
     {
